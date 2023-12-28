@@ -1,0 +1,53 @@
+----------------- ANSIBLE Usage ----------------
+
+-> Ansible can handle multiple server or machine at once time.
+-> basically it's open-source configuration management tool.
+-> manage diffrent environments like Dev or Prod
+-> also manage multi cloud platform
+-> Terraform - specifically use for create infrastructure 
+-> Ansible - manage configuration
+-> chef - pull based 
+-> ansible - push based
+
+----- Install Ansible Commands -----
+on Master server
+ 1  sudo apt-add-repository ppa:ansible/ansible
+ 2  sudo apt update
+ 3  sudo apt install ansible
+
+
+------- Host file : /etc/ansible/hosts - in this given file host details are available
+* you can add all the server details in this file [Edit this file with below details]
+example :
+
+[devserver]
+server-1 ansible_host = Public-ip
+server-2 ansible_host = Public-ip
+
+[prodserver]
+server-3 ansible_host = Public-ip
+
+
+* create variable
+[devserver:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_user=ubuntu
+ansible_ssh_private_key_file=/home/ubuntu/keys/Visualcode.pem
+
+--- share file local to remote server ---
+* use scp command
+
+--- Ansible Commands ---
+
+1. Adhoc commands -a is used for adoc : ex - ansible devserver -a "free -h"
+2. modules -m is used for modules : ex - ansible devserver -m ping
+
+* you can see the list of all host
+=> command :  ansible-inventory --list
+
+
+==== PLAYBOOK ====
+
+it's YAML file - use automation to perform Tasks
+
+command : ansible-playbook -v <Playbook_name>

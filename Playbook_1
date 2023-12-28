@@ -1,0 +1,9 @@
+-
+  name : Dates Playbook
+  hosts : devserver #Group which created in Hosts file
+  tasks :
+    - name : Show date
+      command : date
+
+    - name : Show uptime
+      command : uptime

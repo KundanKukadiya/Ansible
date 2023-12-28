@@ -1,0 +1,15 @@
+-
+  name : Install nginx on all servers and start it
+  hosts : devserver
+  become : yes # for root user access  
+  tasks :
+    - name : Install nginx
+      apt :
+        name : nginx
+        state : latest
+        
+    - name : Start Nginx
+      service :
+        name : nginx
+        state : started
+        enabled : yes   

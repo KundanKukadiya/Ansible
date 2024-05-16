@@ -48,6 +48,18 @@ ansible_ssh_private_key_file=/home/ubuntu/keys/Visualcode.pem
 
 ==== PLAYBOOK ====
 
-it's YAML file - use automation to perform Tasks
+-> it's YAML file - use automation to perform Tasks
 
 command : ansible-playbook -v <Playbook_name>
+
+-> Run a Playbook:
+command : ansible-playbook <playbook-file>
+
+-> Perform a Dry run
+command: ansible-playbook --check <yaml file>
+
+-> Limit playbook execution to a specific host
+command: ansible-playbook <yml.file> --limit <hostname>
+
+-> Check Playbook Sysntax
+command: ansible-playbook --syntax-check <yaml file>
